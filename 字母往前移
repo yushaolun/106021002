@@ -1,0 +1,34 @@
+# 106021002
+HOMEWORK
+import java.util.Scanner;
+
+public class b3 {
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        String a=sc.nextLine();
+        int b=sc.nextInt();
+        char []c=a.toCharArray();
+
+        for (int i=0;c.length>i;i++){
+            int d=((int)c[i])+b;
+            char e=(char)d;
+            System.out.print(e);
+        }
+           System.out.println();
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+}
