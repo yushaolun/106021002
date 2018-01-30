@@ -1,0 +1,40 @@
+# 106021002
+HOMEWORK
+import java.util.Scanner;
+
+public class b8 {
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        if (a<=5&&a>=3){
+            System.out.println("Spring");
+        }
+       else if (a>=6&&8>=a){
+            System.out.println("Summer");
+        }
+       else if (a>=9&&11>=a){
+           System.out.println("Autumn");
+        }
+        else if (a==12){
+           System.out.println("Winter");
+        }
+         else if (a>=1&&2>=a){
+            System.out.println("Winter");
+        }
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+}
