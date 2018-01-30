@@ -1,0 +1,42 @@
+# 106021002
+HOMEWORK
+import java.util.Scanner;
+
+public class b5 {
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int y=0;
+        for (int i=1; a>=i;i++ ) {
+            if (a % i == 0) {
+                y++;
+            }
+        }
+            if (y==2){
+                System.out.println("YES");
+
+            }
+            else
+                System.out.println("NO");
+
+        }
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
