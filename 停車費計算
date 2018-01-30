@@ -1,0 +1,33 @@
+# 106021002
+HOMEWORK
+import java.util.Scanner;
+
+public class b7 {
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        int c=sc.nextInt();
+        int d=sc.nextInt();
+        int e=(c-a)*60+(d-b);
+        if (120>=e){
+            System.out.println((e/30)*30);
+        }
+         else if (240>e){
+            System.out.println((e/30)*40-40);
+        }
+        else if (e>240){
+             System.out.println((e/30)*60-(120+80));
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+}
