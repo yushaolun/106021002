@@ -1,0 +1,48 @@
+# 106021002
+HOMEWORK
+import java.util.Scanner;
+
+public class b11 {
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        if (120>=a){
+            System.out.println((float) Math.round(a*2.10*100)/100);
+            System.out.println((float) Math.round(a*2.10*100)/100);
+        }
+        else if (330>=a&&a>=121){
+            System.out.println((float)Math.round((3.02*a+120*2.10-3.02*119)*100)/100);
+            System.out.println((float)Math.round((2.68*a+120*2.10-2.68*119)*100)/100);
+        }
+        else if (500>=a&&a>=331){
+            System.out.println((float)Math.round((4.39*a+3.02*210+120*2.10-4.39*330)*100)/100);
+            System.out.println((float)Math.round((3.61*a+2.68*210+120*2.10-3.61*330)*100)/100);
+        }
+        else if (a>=501&&700>=a){
+            System.out.println((float)Math.round((4.97*a+3.02*210+120*2.10+4.39*170-500*4.97)*100)/100);
+            System.out.println((float)Math.round((4.01*a+2.68*210+120*2.10+3.61*170-500*4.01)*100)/100);
+        }
+        else if (a>=701){
+            System.out.println((float)Math.round((5.63*a+3.02*210+120*2.10+4.97*200-700*5.63+170*4.39)*100)/100);
+            System.out.println((float)Math.round((4.50*a+2.68*210+120*2.10+4.01*200-700*4.50+170*3.61)*100)/100);
+        }
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+}
