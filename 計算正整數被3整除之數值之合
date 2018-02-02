@@ -1,0 +1,28 @@
+# 106021002
+HOMEWORK
+public class b13 {
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int b=0;
+        for (int i=0;a>=i;i++){
+            if (i%3==0){
+                b=i+b;
+            }
+        }
+       System.out.println(b);
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+}
