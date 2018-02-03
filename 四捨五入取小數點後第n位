@@ -1,0 +1,27 @@
+# 106021002
+HOMEWORK
+import java.util.Scanner;
+
+public class c2 {
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        double a=sc.nextDouble();
+        int b=sc.nextInt();
+        float e=Math.round(a*Math.pow(10,b));
+        float g=(float)(e/Math.pow(10,b));
+        System.out.println(g);
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+}
