@@ -1,0 +1,54 @@
+# 106021002
+HOMEWORK
+import java.util.Scanner;
+
+public class c4 {
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        String a=sc.nextLine();
+        int []count=new int[52];
+        String []j=a.split(" ");
+        System.out.println(j.length);
+        for (int i=0;a.length()>i;i++) {
+            int k = a.charAt(i) - 'a';
+            if (k >= 0 && 26 >= k) {
+                count[k]++;
+            } else {
+                k = a.charAt(i) - 'A';
+                if (k >= 0 && 26 >= k) {
+                    count[26 + k]++;
+                }
+            }
+        }
+        for (int i=0;52>i;i++) {
+            if (count[i] > 0) {
+                if (26 >i) {
+                    System.out.println((char)(97+i) + ":" + count[i]);
+                } else {
+                    System.out.println((char)(65+i-26) + ":" + count[i]);
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+}
