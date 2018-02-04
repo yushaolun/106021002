@@ -1,0 +1,34 @@
+# 106021002
+HOMEWORK
+import java.util.Scanner;
+
+public class c3 {
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        String a=sc.nextLine();
+        char []e=a.toCharArray();
+        String b="";
+        String c="";
+        for (int i=0;e.length>i;i++){
+            b=b+e[i];
+            c=e[i]+c;
+        }
+        if (b.equals(c)){
+            System.out.println("YES");
+        }
+        else {
+            System.out.println("NO");
+        }
+
+
+
+
+    }
+
+
+
+
+
+
+
+}
