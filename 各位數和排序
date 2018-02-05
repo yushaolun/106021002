@@ -1,0 +1,60 @@
+# 106021002
+HOMEWORK
+import java.util.Scanner;
+
+public class c6 {
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int []b=new int[a];
+        for (int i=0;a>i;i++){
+            b[i]=sc.nextInt();
+        }
+        for(int i=0;a>i;i++){
+            for (int j=i+1;a>j;j++){
+                if (fu(b[i])>fu(b[j])){
+                    int k=b[i];
+                    b[i]=b[j];
+                    b[j]=k;
+                }
+                else if (fu(b[i])==fu(b[j])){
+                    if (b[i]>b[j]){
+                        int n=b[i];
+                        b[i]=b[j];
+                        b[j]=n;
+                    }
+                }
+            }
+        }
+
+       for (int i=0;a>i;i++){
+            System.out.print(b[i]+" ");
+
+       }
+
+
+    }
+      public static int fu(int a){
+       int b=0;
+       int c=0;
+       while (a>=10){
+           b=a%10;
+           a=a/10;
+           c=b+c;
+       }
+          if (10>a){
+           c=c+a;
+          }
+       return c;
+      }
+
+
+
+
+
+
+
+
+
+
+}
