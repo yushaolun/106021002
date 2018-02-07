@@ -1,0 +1,45 @@
+# 106021002
+HOMEWORK
+import java.util.Scanner;
+
+public class b15 {
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int a=Integer.parseInt(sc.nextLine());
+        int sum=0;
+        char c[];
+        int n[]=new int[a];
+        String[] b=new String[a];
+        for (int i=0;a>i;i++){
+             b[i]=sc.nextLine();
+            c=b[i].toCharArray();
+            for (int j=0;c.length>j;j++) {
+                sum = sum + (int) c[j];
+            }
+            n[i]=sum;
+            sum=0;
+        }
+        for (int i=0;a>i;i++){
+            System.out.println(n[i]);
+        }
+
+
+
+
+        }
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
