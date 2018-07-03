@@ -1,0 +1,95 @@
+# 106021002
+HOMEWORK
+import java.io.*;
+import java.security.Key;
+import java.util.TreeMap;
+public class finaltest {
+    public static void main(String[]args) throws IOException {
+        String InputDir="D:\\DC\\Traffic";
+        String OutputDir="D:\\DC\\DA";
+        String Target_GantryON_Northern = "01F2514N";
+        String Target_GantryON_Southern = "01F2603S";
+        String OutputFile=OutputDir+"//"+"TDCS_GantryID_ON_VehicleType_20171030_24Hours_WuFung.csv";
+
+        File folder=new File(InputDir);
+       for ( File fileEntry:folder.listFiles()) {
+           System.out.println(fileEntry.getName());
+           String File = fileEntry.getName();
+
+           String Vehicletype[] = {"5", "31", "32", "41", "42"};
+           TreeMap<String, Integer> VehicleTypeCnt = new TreeMap<>();
+           String Filepath = InputDir + "\\" + File;
+           FileReader FR = new FileReader(Filepath);
+           BufferedReader bfr = new BufferedReader(FR);
+
+           for (int i = 0; Vehicletype.length > i; i++) {
+               VehicleTypeCnt.put(Vehicletype[i], 0);
+           }
+           String OneLine;
+           int cont = 0;
+           while ((OneLine = bfr.readLine()) != null) {
+               String[] WORD = OneLine.split(",");
+               String Target_GantryON = WORD[2];
+               if (Target_GantryON.equals(Target_GantryON_Northern) || Target_GantryON.equals(Target_GantryON_Southern)) {
+                   cont++;
+                   int temp = 0;
+                   temp = VehicleTypeCnt.get(WORD[0]);
+                   temp++;
+                   VehicleTypeCnt.put(WORD[0], temp);
+
+               }
+           }
+           System.out.println(InputDir+ "\\"+File +" "+"Total Records:" + cont);
+
+
+           FileWriter fw;
+           BufferedWriter bfw ;
+           File f = new File(OutputFile);
+          if (!f.exists()) {
+              fw = new FileWriter(OutputFile);
+              bfw = new BufferedWriter(fw);
+
+              bfw.write(" " + ",");
+                  //String 車的類型
+              for (Object key : VehicleTypeCnt.keySet()) {
+                  bfw.write("VT" + key + ",");
+              }
+              bfw.newLine();
+          }
+          else {
+              fw=new FileWriter(OutputFile,true);
+              bfw=new BufferedWriter(fw);
+          }
+               String date=File.substring(14,18);
+               String hour = File.substring(19, 21);
+               bfw.write(date+":"+"H" + hour + ",");
+               //Interger 車的數量
+           for (Object key:VehicleTypeCnt.keySet()){
+               bfw.write(VehicleTypeCnt.get(key)+",");
+           }
+           bfw.newLine();
+           bfw.flush();
+           bfw.close();
+       }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
