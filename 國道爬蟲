@@ -1,0 +1,77 @@
+# 106021002
+HOMEWORK
+import javax.print.DocFlavor;
+import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.Buffer;
+import java.util.Timer;
+
+public class traffic {
+    public static void main(String[] args) throws Exception {
+        String BaseURL = "http://tisvcloud.freeway.gov.tw/history/TDCS/M06A";
+        String BaseTail = "0000.csv";
+        String BaseType = "TDCS_M06A";
+
+        int year = 2018;
+        int month = 5;
+
+        int daystart =8;
+        int dayend = 8;
+        int hourstart = 0;
+        int hourend = 1;
+        String Month;
+        String TargetURL;
+        String Day;
+        String Hour;
+        if (month < 10) {
+            Month = Integer.toString(0) + month;
+        }
+        else {
+            Month = "" + month;
+        }
+
+        for (int day = daystart; dayend >= day; day++) {
+            if (day < 10) {
+                //01
+                Day = Integer.toString(0) + day;
+            } else {
+                //10
+                Day = "" + day;
+            }
+            for (int hour = hourstart; hourend >= hour; hour++) {
+                if (hour < 10) {
+                    Hour = Integer.toString(0) + hour;
+                    //"http://tisvcloud.freeway.gov.tw/history/TDCS/M06A/20181104/01/TDCS_M06A_20181104_000000.csv"
+                    TargetURL = BaseURL + "/" + year + Month + Day + "/" + Hour + "/" + BaseType + "_" + year + Month + Day + "_" + Hour + BaseTail;
+                    System.out.println(TargetURL);
+                } else {
+                    Hour = "" + hour;
+                    TargetURL = BaseURL + "/" + year + Month + Day + "/" + Hour + "/" + BaseType + "_" + year + Month + Day + "_" + Hour + BaseTail;
+                    System.out.println(TargetURL);
+                }
+                String Filelocation;
+                URL url = new URL(TargetURL);
+                Filelocation = "D://traffic" + "/" + BaseType + "_" + year + Month + Day + "_" + Hour + BaseTail;
+                RandomAccessFile out = new RandomAccessFile(Filelocation, "rw");
+                DataInputStream in = new DataInputStream(url.openStream());
+
+                    System.out.println("Download " + Filelocation);
+
+                    try {
+                        byte data;
+                    while(true)
+                {
+                    data = (byte)in.readByte();
+                    out.writeByte(data);
+                }
+            }
+                    catch(EOFException e) { }
+
+                in.close();
+                out.close();
+            }
+        }
+        System.out.println("Finish");
+    }
+}
