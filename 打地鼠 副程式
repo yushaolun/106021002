@@ -1,0 +1,148 @@
+# 106021002
+HOMEWORK
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+class p23 extends JFrame implements ActionListener {
+    static int score=0;
+    static int num=0;
+    static int miniute=20;
+    static p23 fra = new p23();
+    static JLabel la = new JLabel();
+    static JButton jb = new JButton();
+    static JLabel la1=new JLabel();
+    static JLabel la2=new JLabel();
+    static p24 fc=new p24();
+    public void second() {
+        fra.setLayout(null);
+        fra.setTitle("Whack-A-Mole");
+        fra.setBounds(200, 200, 800, 800);
+        fra.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+        ImageIcon imageIcon = new ImageIcon("D:\\ba3.jpg");
+        ImageIcon imageIcon1 = new ImageIcon("D:\\pppp.png");
+        la1.setBounds(110,30,120,20);
+        la1.setFont(new Font("標楷體",Font.PLAIN,18));
+        la1.setText("目前分數"+": "+String.valueOf(0));
+        fra.add(la1);
+        la2.setBounds(300,30,120,20);
+        la2.setFont(new Font("標楷體",Font.PLAIN,18));
+        la2.setText("剩餘秒數"+": "+String.valueOf(miniute));
+        fra.add(la2);
+        jb.setBounds(595, 400, 140, 170);
+        jb.setIcon(imageIcon1);
+        jb.setBorderPainted(false);//去除邊框
+        jb.setContentAreaFilled(false);//去除按鈕背景填空
+
+        fra.add(jb);
+        la.setBounds(0, 100, 800, 600);
+        la.setIcon(imageIcon);
+        fra.add(la);
+        fra.setVisible(true);
+        jb.addActionListener(fra);
+
+        Timer timer3=new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                miniute=miniute-1;
+                la2.setText("剩餘秒數"+": "+String.valueOf(miniute));
+            }
+        });
+        timer3.start();
+
+        Timer timer2 = new Timer(20000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fra.setVisible(false);
+                fc.third(score);
+            }
+        });
+        timer2.start();
+
+        Timer timer = new Timer(3000,new ActionListener() { //每三秒執行一次裡面
+            @Override
+
+            public void actionPerformed(ActionEvent e) {
+                   num=(int)(Math.random()*9+1);
+                if(num==1){
+                    jb.setBounds(110, 150, 140, 170);
+                }
+                else if (num==2){
+                    jb.setBounds(350,150,140,170);
+                }
+                else if (num==3){
+                    jb.setBounds(580,150,140,170);
+                }
+                else if (num==4){
+                    jb.setBounds(40,280,140,170);
+                }
+                else if (num==5){
+                    jb.setBounds(300,280,140,170);
+                }
+                else if (num==6){
+                    jb.setBounds(555,280,140,170);
+                }
+                else if (num==7){
+                    jb.setBounds(90,400,140,170);
+                }
+                else if (num==8){
+                    jb.setBounds(343,400,140,170);
+                }
+                else if (num==9){
+                    jb.setBounds(595,400,140,170);
+                }
+              }
+        });
+            timer.start();
+        }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+     JButton btn=(JButton)e.getSource();
+     if (btn==jb){
+         num=(int)(Math.random()*9+1);
+         score=score+2;
+         la1.setText("目前分數"+": "+String.valueOf(score));
+         if(num==1){
+             jb.setBounds(110, 150, 140, 170);
+         }
+         else if (num==2){
+             jb.setBounds(350,150,140,170);
+         }
+         else if (num==3){
+             jb.setBounds(580,150,140,170);
+         }
+         else if (num==4){
+             jb.setBounds(40,280,140,170);
+         }
+         else if (num==5){
+             jb.setBounds(300,280,140,170);
+         }
+         else if (num==6){
+             jb.setBounds(555,280,140,170);
+         }
+         else if (num==7){
+             jb.setBounds(90,400,140,170);
+         }
+         else if (num==8){
+             jb.setBounds(343,400,140,170);
+         }
+         else if (num==9){
+             jb.setBounds(595,400,140,170);
+         }
+
+     }
+
+    }
+
+
+
+    }
