@@ -1,0 +1,94 @@
+import java.util.Iterator;
+import java.util.LinkedList;
+
+import static java.lang.System.out;
+
+public class ploye {
+    public static void main(String[]args) {
+        LinkedList<vari> list1 = new LinkedList<vari>();
+        LinkedList<vari> list2 = new LinkedList<vari>();
+        LinkedList<vari> list3 = new LinkedList<vari>();
+
+        vari x1 = new vari();
+        x1.coef = 12;
+        x1.expo = 1000;
+        list1.add(x1);
+        vari x2 = new vari();
+        x2.coef = 6;
+        x2.expo = 15;
+        list1.add(x2);
+        vari x3 = new vari();
+        x3.coef = 5;
+        x3.expo = 0;
+        list1.add(x3);
+
+
+        vari y1 = new vari();
+        y1.coef = 8;
+        y1.expo = 560;
+        list2.add(y1);
+        vari y2 = new vari();
+        y2.coef = -5;
+        y2.expo = 15;
+        list2.add(y2);
+        vari y3 = new vari();
+        y3.coef = 6;
+        y3.expo = 0;
+        list2.add(y3);
+
+        Iterator<vari> it1 = list1.listIterator();
+        while (it1.hasNext()) {
+            vari x = it1.next();
+            System.out.printf("%dx^%d ", x.coef, x.expo);
+        }
+        System.out.println();
+        Iterator<vari> it2 = list2.listIterator();
+        while (it2.hasNext()) {
+            vari y = it2.next();
+            System.out.printf("%dx^%d ", y.coef, y.expo);
+        }
+        System.out.println();
+        it1 = list1.iterator();
+        it2 = list2.iterator();
+        vari x = it1.next();
+        vari y = it2.next();
+        while (true) {
+            if (x.expo > y.expo) {
+                vari z = new vari();
+                z.coef = x.coef;
+                z.expo = x.expo;
+                list3.add(z);
+                if (it1.hasNext()) {
+                    x = it1.next();
+                }
+            } else if (y.expo > x.expo) {
+                vari z = new vari();
+                z.coef = y.coef;
+                z.expo = y.expo;
+                list3.add(z);
+                if (it2.hasNext()) {
+                    y = it2.next();
+                }
+            } else {
+                vari z = new vari();
+                z.coef = x.coef + y.coef;
+                z.expo = y.expo;
+                list3.add(z);
+                if (!it1.hasNext() && !it2.hasNext()) {
+                    break;
+                }
+                    x = it1.next();
+                    y = it2.next();
+            }
+        }
+
+
+            Iterator<vari> it3 = list3.listIterator();
+            while (it3.hasNext()) {
+                vari z = it3.next();
+                System.out.printf("%d^%d ", z.coef, z.expo);
+            }
+
+
+    }
+}
