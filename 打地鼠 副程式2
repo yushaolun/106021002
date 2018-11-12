@@ -1,0 +1,38 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import static java.awt.Color.YELLOW;
+
+public class p24 extends Frame {
+    static int scor=0;
+    static p24 frb = new p24();
+    static JLabel jla=new JLabel();
+    static JLabel jla2=new JLabel();
+    public void third(int score){
+    scor=score;
+    jla.setBounds(300,130,200,100);
+    jla.setText("GAME OVER");
+    jla.setFont(new Font("標楷體",Font.PLAIN,30));
+    jla.setForeground(Color.RED);
+    frb.add(jla);
+    jla2.setBounds(300,300,300,100);
+    jla2.setText("Total score: "+String.valueOf(scor));
+    jla2.setFont(new Font("標楷體",Font.PLAIN,30));
+    jla2.setForeground(Color.RED);
+    frb.add(jla2);
+    frb.setTitle("Whack-A-Mole");
+    frb.setBounds(200,200,800,800);
+    frb.setBackground(Color.cyan);
+    frb.setLayout(null);
+
+    frb.setVisible(true);
+    frb.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+
+    }
+}
