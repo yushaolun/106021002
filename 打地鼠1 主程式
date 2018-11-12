@@ -1,0 +1,90 @@
+# 106021002
+HOMEWORK
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+public class p22 extends Frame implements ActionListener {
+
+    static p22 frm = new p22();
+    static JButton btn = new JButton("Center");
+    static JButton btn2 = new JButton("Cancel");
+    static TextField tf = new TextField();
+    static TextField tf2 = new TextField();
+    static Label lab = new Label("Account");
+    static Label lab2 = new Label("Password");
+    static Label lab3 = new Label();
+    static p23 fa=new p23();
+    public static void main(String[] args) {
+        frm.setBackground(Color.PINK);
+        frm.setTitle("Whack-A-Mole");
+        frm.setLayout(null);
+        frm.setBounds(200, 200, 600, 600);
+        btn.setBounds(100, 450, 120, 80);
+        btn2.setBounds(350, 450, 120, 80);
+        btn.setBackground(Color.CYAN);
+        btn2.setBackground(Color.yellow);
+
+        tf.setBounds(240, 150, 120, 30);
+        tf2.setBounds(240, 280, 120, 30);
+        tf2.setEchoChar('*');
+        tf.setFont(new Font("標楷體",Font.PLAIN,18));
+        tf2.setFont(new Font("標楷體",Font.PLAIN,18));
+        lab.setBounds(100, 150, 80, 30);
+        lab2.setBounds(100, 280, 100, 30);
+        lab3.setBounds(240, 330, 330, 30);
+        lab.setForeground(Color.BLUE);
+        lab2.setForeground(Color.BLUE);
+        lab3.setForeground(Color.RED);
+        lab3.setFont(new Font("標楷體",Font.BOLD,20));
+        lab.setFont(new Font("標楷體",Font.PLAIN,20));
+        lab2.setFont(new Font("標楷體",Font.PLAIN,20));
+        frm.add(lab);
+        frm.add(lab2);
+        frm.add(lab3);
+        frm.add(btn);
+        frm.add(btn2);
+        frm.add(tf);
+        frm.add(tf2);
+
+        frm.setVisible(true);
+        btn.addActionListener(frm);
+        btn2.addActionListener(frm);
+        frm.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JButton bt = (JButton) e.getSource();
+        String account = "alan";
+        String password = "alanyu";
+        if (bt == btn2) {
+            frm.dispose();
+        }
+        if (bt == btn) {
+            if (tf.getText().equals(account) && tf2.getText().equals(password)) {
+                frm.setVisible(false);
+                fa.second();//呼叫第2個視窗
+            } else if (!tf.getText().equals(account) && tf2.getText().equals(password)) {
+                lab3.setText(" ");
+                lab3.setText("Account error");
+
+            } else if (tf.getText().equals(account) && !tf2.getText().equals(password)) {
+                lab3.setText(" ");
+                lab3.setText("Password error");
+            } else if (!tf.getText().equals(account) && !tf2.getText().equals(password)) {
+                lab3.setText(" ");
+                lab3.setText("Account error and Password error");
+            }
+        }
+    }
+}
