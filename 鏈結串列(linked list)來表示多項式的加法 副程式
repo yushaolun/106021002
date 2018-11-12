@@ -1,0 +1,6 @@
+# 106021002
+HOMEWORK
+public class vari {
+    public int coef;
+    public int expo;
+}
